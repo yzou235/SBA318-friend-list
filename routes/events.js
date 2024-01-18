@@ -4,7 +4,7 @@ const friends = require('../data/friends');
 const events = require('../data/events');
 const comments = require('../data/comments');
 
-// get all events
+// get event page
 router
     .route("/:id")
     .get((req, res, next) => {
