@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 // Route Prefix
 app.use("", require("./routes/home"));
 app.use("/api/friends", friends);
-// app.use("/api/events", events);
+app.use("/api/events", events);
 // app.use("/api/comments", comments);
 
 // 404 Middleware

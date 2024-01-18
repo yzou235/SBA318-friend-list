@@ -1,0 +1,52 @@
+<%- include('layout/header') %>
+
+<div class="container event-details">
+    <div class="event-header">
+        <h1><%= event.event %></h1>
+        <p class="event-meta">With: <%= event.friendName %> | Date: <%= event.date %></p>
+    </div>
+    <div class="event-content">
+        <article class="article">
+            <%= event.content %>
+        </article>
+    </div>
+</div>
+
+<div class="container comments">
+    <% if (eventComments.length > 0) { %>
+        <table class="comments-table">
+            <thead>
+                <tr>
+                    <th>Comments</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% eventComments.forEach(comment => { %>
+                    <tr>
+                        <td style = "text-align: left;"><%= comment.comment %></td>
+                        <td class="comment-actions">
+                            <a href="" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
+                            <a href="" class="text-danger"><i class="fas fa-trash fa-lg mx-1"></i></a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p class="no-comments">No comments yet.</p>
+    <% } %>
+</div>
+
+<div class="container comment-form">
+    <h2>Submit a Comment</h2>
+    <form id="commentForm">
+        <div class="form-group">
+            <label for="content">Comment:</label>
+            <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Comment</button>
+    </form>
+</div>
+
+<%- include('layout/footer') %>

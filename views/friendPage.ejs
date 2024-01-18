@@ -27,7 +27,7 @@
         <tbody>
             <% friendEvents.forEach(fEvent => { %>
                 <tr>
-                    <td style="vertical-align: middle;"><%= fEvent.event %></td>
+                    <td style="vertical-align: middle;"><a href="/api/events/<%= fEvent.id %>"><%= fEvent.event %></a></td>
                     <td style="vertical-align: middle;"><%= fEvent.date %></td>
                     <td>
                         <a href="#" style="color: #73746b; "><i class="fas fa-eye fa-lg mx-1"></i></a>
@@ -38,6 +38,24 @@
             <% }); %>
         </tbody>
     </table>
+
+    <h2 style="margin-top: 30px;">Add New Event</h2>
+
+    <form id="newEventForm">
+        <div class="form-group">
+            <label for="eventName">Event Name:</label>
+            <input type="text" class="form-control" id="eventName" name="eventName" required>
+        </div>
+        <div class="form-group">
+            <label for="eventDate">Event Date:</label>
+            <input type="date" class="form-control" id="eventDate" name="eventDate" required>
+        </div>
+        <div class="form-group">
+            <label for="eventJournal">Event Journal:</label>
+            <textarea class="form-control" id="eventJournal" name="eventJournal" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Event</button>
+    </form>
 </div>
 
 

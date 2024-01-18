@@ -99,3 +99,52 @@ input {
 .update-submit:hover {
     background-color: #45a049;
 }
+
+.container {
+    margin-top: 20px;
+}
+
+.event-details {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-header {
+    margin-bottom: 20px;
+}
+
+.event-meta {
+    color: #888;
+}
+
+.article {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+.comments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.comments-table th, .comments-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.comment-actions a {
+    color: #555;
+    margin-right: 10px;
+}
+
+.no-comments {
+    color: #555;
+}
+
+.comment-form {
+    margin-top: 30px;
+}
