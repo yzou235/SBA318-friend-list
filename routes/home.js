@@ -33,4 +33,9 @@ router
         }
     });
 
+// event journal hub
+router.get("/journalhub", (req, res) => {
+    res.render('journalhub', { title: "JournalHub" , events });
+})
+
 module.exports = router;

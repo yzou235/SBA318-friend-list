@@ -1,0 +1,28 @@
+<%- include('layout/header') %>
+
+
+<div class="container">
+    <h1 style="margin-top: 15px;">Events</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr style="text-align: center;">
+                <th style="width: 40%;">Event Name</th>
+                <th style="width: 40%;">With Friend</th>
+                <th style="width: 20%;">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% events.forEach(event => { %>
+                <tr>
+                    <td><a href="/api/events/<%= event.id %>"><%= event.event %></a></td>
+                    <td><%= event.friendName %></td>
+                    <td><%= event.date %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+
+
+<%- include('layout/footer') %>
