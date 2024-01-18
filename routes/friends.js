@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const friends = require('../data/friends');
 const events = require('../data/events');
+const comments = require('../data/comments');
 
 router
     .route("/:id")
@@ -44,22 +45,31 @@ router
             next();
         }
     })
-    .post((req, res) => {
+    .patch((req, res) => {
         const friendId = req.params.id;
         const updatedInfo = req.body;
-
+    
         const friendIndex = friends.findIndex(f => f.id == friendId);
-        if(friendIndex !== -1) {
+        if (friendIndex !== -1) {
             friends[friendIndex] = { ...friends[friendIndex], ...updatedInfo };
             const successMessage = 'Friend information successfully updated';
-            // res.render('updateFriend', { friend: friends[friendIndex], title: 'Update Friend Info', successMessage });
-            // res.redirect(`/api/friends/${friendId}`);
-            res.json({ friend: friends[friendIndex], successMessage: 'Friend information successfully updated' });
+            res.json({ friend: friends[friendIndex], successMessage });
         } else {
             res.status(404).send("Friend not found");
         }
     })
 
+router
+    .route("/:id/events/:eventId")
+    .get((req, res, next) => {
+        const event = events.find((f) => f.id == req.params.eventId);
+        if (event) {
+            // render the page with the friend bio and a list of memory events with this friend
+            res.render('eventPage', {event, title: `${event.event}`});
+        } else {
+            next();
+        }
+    })
 
 
 module.exports = router;

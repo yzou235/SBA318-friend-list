@@ -2,7 +2,7 @@
 
 <h1>Update <%= friend.name %>'s Info</h1>
 <div class="update-friend">
-    <form action="/api/friends/<%= friend.id %>/update" class="update-form">
+    <form action="/api/friends/<%= friend.id %>/update" method="patch" class="update-form">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<%= friend.name %>" required><br>
 
@@ -38,7 +38,7 @@
             const formData = new FormData(this);
 
             fetch(this.action, {
-                method: 'POST',
+                method: 'PATCH', // Change the method to PATCH
                 headers: {
                     'Content-Type': 'application/json',
                 },

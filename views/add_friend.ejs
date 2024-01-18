@@ -1,0 +1,63 @@
+<%- include('layout/header') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header" style="background-color: #6495ED;">
+                    <h3 class="text-light">Add New Friend</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/add" method="post" id="add-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter name" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter email" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone">Phone</label>
+                            <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Enter phone number" required />
+                        </div>
+                        <!-- <div class="mb-3">
+                            <label for="image" class=""form-label>Select Image</label>
+                            <input class="form-control form-control-lg" type="file" name="image" required />
+                        </div> -->
+                        <div class="mb-e d-grid">
+                            <input type="submit" name="submit" value="Add Friend" class="btn btn-lg" style="background-color: #e8f48c; color: #000000;"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addForm = document.getElementById('add-form');
+
+        addForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Your asynchronous form submission logic using Fetch API or other methods
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Server response:', data);
+
+                alert('Friend successfully added!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+</script>
+
+<%- include('layout/footer') %>

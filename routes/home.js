@@ -10,4 +10,27 @@ router.get("/", (req, res) => {
     // {} is an object (to be used by the template engine to dynamically generate the HTML) passed to the render method
 });
 
+// add friend page
+router
+    .route("/add")
+    .get((req, res) => {
+        res.render('add_friend', { title: "Add Friend" });
+    })
+    .post((req, res, next) => {
+        const { name, email, phone } = req.body;
+
+        if(name && email && phone) {
+            const newFriend = {
+                id: friends[friends.length - 1].id +1,
+                name: req.body.name,
+                email: req.body.email,
+                phone: req.body.phone,
+            };
+            friends.push(newFriend);
+            res.json(newFriend);
+        } else {
+            next();
+        }
+    });
+
 module.exports = router;
