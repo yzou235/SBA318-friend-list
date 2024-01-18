@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!-- EJS syntax: dynamically sets the title of the webpage using the value of the 'title' variable -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/css/bootstrap.min.css" integrity="sha512-aqT9YD5gLuLBr6ipQAS+72o5yHKzgZbGxEh6iY8lW/r6gG14e2kBTAJb8XrxzZrMOgSmDqtLaF76T0Z6YY2IHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6495ED;">
+        <div class="container">
+            <a href="/" class="navbar-brand"><i class="far fa-address-book"></i> MyFriends </a>
+            <button class="navbar-toggler" data-bs-target="#my-nav" data-bs-toggle="collapse" aria-controls="#my-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/"><i class="fas fa-home me-1"></i>Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/add"><i class="fas fa-user-plus me-1"></i>Add Friend</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/gallery"><i class="far fa-image"></i> Gallery</a>
+                    </li>
+                    <!-- <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fas fa-home me-1"></i>Contact</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>

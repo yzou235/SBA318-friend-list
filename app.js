@@ -17,8 +17,11 @@ app.use(express.json({ extended: true }))
 // Static Files //
 app.use(express.static('public'));
 
+// Set Template Engine
+app.set('view engine', 'ejs');
+
 // Route Prefix
-// app.use("", require("./routes/routes"));
+app.use("", require("./routes/friends"));
 // app.use("/api/friends", friends);
 // app.use("/api/posts", posts);
 // app.use("/api/comments", comments);
