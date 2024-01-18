@@ -12,8 +12,8 @@ MyFriends is a friend list application built on Node.js and Express, using Boots
 
   - View a friend detailed info including address, date of birth, favorite things.
   - Click the button to update this friend's info
-  - Check your memory events with this friend. (Edit and Delete function will be developed later)
-  - Add new memory events for this friend. (Will be developed later)
+  - Check and manage your memory events with this friend. (route with `PATCH` and `DELETE` methods is created in `/routes/event.js`)
+  - Add new memory events for this friend. (route with `UPDATE` methods is created in `/routes/event.js`)
 
 - **Event Hub:**
 
@@ -63,11 +63,11 @@ The app includes three main data categories: `friends`, `events`, and `comments`
 
 ## Routes
 
-- `/`: Home page displaying a list of friends.
-- `/add`: Add friend page.
-- `/eventhub`: Event hub displaying all events with filtering options (using friendId as the query parameter).
-- `/api/friends/:id`: Individual friend page with options to view (GET), update (PATCH) and delete (DELETE).
-- `/api/events/:id`: to populate Individual event page.
+- `/`: Home page displaying a list of friends with options to view (GET), update (PATCH) and delete (DELETE).
+- `/add`: to populate Add friend page (`POST`).
+- `/eventhub`: to display all events with filtering options (using friendId as the query parameter).
+- `/api/friends/:id`: to populate Individual friend page with options to view (GET), update (PATCH) and delete (DELETE).
+- `/api/events/:id`: to populate individual event page with options to view (GET), update (PATCH) and delete (DELETE).
 
 ## Custom Middleware
 
