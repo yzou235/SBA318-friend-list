@@ -33,9 +33,39 @@ router
         }
     });
 
-// event journal hub
-router.get("/journalhub", (req, res) => {
-    res.render('journalhub', { title: "JournalHub" , events });
+// event event hub
+router.get("/eventhub", (req, res) => {
+    let filteredEvents = events;
+
+    console.log(req.query);
+    
+    if (req.query.friendFilter) {
+        filteredEvents = events.filter(event => event.friendId == req.query.friendFilter);
+    }
+    res.render('eventhub', { title: "EventHub" , events: filteredEvents, friends: friends });
 })
+
+// router.get("/journalhub", (req, res) => {
+//     const friendFilter = req.query.friendFilter;
+//     console.log(friendFilter);
+//     // Pass friendFilter to the view for rendering
+//     res.render('journalhub', { title: "JournalHub", events, friendFilter });
+// });
+
+// router.get("/journalhub", (req, res) => {
+//     const friendId = req.query.friendFilter;
+//     console.log(friendId);
+//     console.log(req.query);
+//     // Pass friendFilter to the view for rendering
+//     res.render('journalhub', { title: "JournalHub", events, friendId });
+// });
+
+// router.get("/friendEvents/:?friendId", (req, res) => {
+//     const friendId = req.params.friendId;
+//     // Filter events based on the specific friendId
+//     const events = events.filter(event => event.friendId == friendId);
+//     // Render the friendEvents.ejs template with the filtered events
+//     res.render('journalhub', { title: "Friend's Events", events });
+// });
 
 module.exports = router;

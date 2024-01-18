@@ -3,6 +3,16 @@
 
 <div class="container">
     <h1 style="margin-top: 15px;">Events</h1>
+    <form action="/eventhub" method="GET">
+        <label for="friendFilter">Filter by Friend:</label>
+        <select name="friendFilter" id="friendFilter">
+            <option value="">All Friends</option>
+            <% friends.forEach(friend => { %>
+                <option value="<%= friend.id %>"><%= friend.name %></option>
+            <% }); %>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
     <table class="table table-bordered">
         <thead>
             <tr style="text-align: center;">
