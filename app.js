@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 const friends = require("./routes/friends");
-const posts = require("./routes/posts");
+const events = require("./routes/events");
 const comments = require("./routes/comments");
 
 const error = require("./utilities/error");
@@ -21,9 +21,9 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // Route Prefix
-app.use("", require("./routes/friends"));
-// app.use("/api/friends", friends);
-// app.use("/api/posts", posts);
+app.use("", require("./routes/home"));
+app.use("/api/friends", friends);
+// app.use("/api/events", events);
 // app.use("/api/comments", comments);
 
 // 404 Middleware

@@ -1,0 +1,38 @@
+<%- include('layout/header') %>
+
+<div class="container friend-page">
+    <h1 style = "margin-top:15px;"><%= friend.name %></h1>
+    <div class="bio">
+        <div class="info">
+            <p><strong>Birthday:</strong> <%= friend.dob %></p>
+            <p><strong>Address:</strong> <%= friend.address %></p>
+            <p><strong>Phone Number:</strong> <%= friend.phone %></p>
+            <p><strong>Email:</strong> <%= friend.email %></p>
+            <p><strong>Favorite Color:</strong> <%= friend.favColor %></p>
+            <p><strong>Favorite Food:</strong> <%= friend.favFood %></p>
+            <a href="<%= friend.id %>/update" class="btn btn-primary" >Update Friend Info</a>
+        </div>
+        <div class="photo">
+            <img src="<%= friend.image %>" alt="<%= friend.name %>" style="max-width: 350px; max-height: 350px; width: auto; height: auto;">
+        </div>
+    </div>
+    <table class="event-table">
+        <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Event Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% friendEvents.forEach(fEvent => { %>
+                <tr>
+                    <td style="vertical-align: middle;"><%= fEvent.event %></td>
+                    <td style="vertical-align: middle;"><%= fEvent.date %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+
+<%- include('layout/footer') %>

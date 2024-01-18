@@ -1,4 +1,4 @@
-const posts = [
+const events = [
     {
         id:1,
         friendId:1,
@@ -81,4 +81,4 @@ const posts = [
     }
 ];
 
-module.exports = posts;
+module.exports = events;
